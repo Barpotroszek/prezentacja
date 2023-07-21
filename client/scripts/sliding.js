@@ -30,6 +30,9 @@ class Slides {
       this.loaded_q = false;
       this.current_q = -1;
       console.log("Refs:", this.quotes_ref);
+      try {
+        this.ref.querySelector('.top').classList.add("start");        
+      } catch (error) {}
     } catch (error) {
       console.error("some error", error);
       return;
@@ -92,13 +95,13 @@ function renderTemplates() {
     .getElementById("notes-templ")
     .content.querySelector(".notes");
   Array.from(document.querySelectorAll(".slide-container")).forEach((el, i) => {
+    const item = document.importNode(notes_templ, true)
     try {
-      const item = document.importNode(notes_templ, true),
-      notes = el.querySelector(".notes");
+      let notes = el.querySelector(".notes");
       item.querySelector("ul").innerHTML = notes.innerHTML;
       notes.innerHTML = "";
-      el.append(item);
     } catch (e) {}
+    el.append(item);
     slides.max = i;
   });
 }

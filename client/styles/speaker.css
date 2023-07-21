@@ -2,6 +2,8 @@ body{
     overflow: auto;
 }
 
+ul{margin:1em 0; font-weight: lighter; transform: translate(-.5em);}
+
 .slide-container {
     /* position: relative; */
     width: 100vw;
@@ -19,4 +21,10 @@ body{
 
 .notes{
     display: block;
+    font-size: 1.5em;
+    overflow: auto;
+}
+
+.active{
+    transform: translate(-2em);
 }

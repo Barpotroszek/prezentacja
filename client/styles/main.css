@@ -2,11 +2,11 @@ html {
     background-color: black;
     color: white;
     margin: 0;
-    font-size: 1.2em;
+    font-size: .9em;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
-@media (max-height: 770px) {   
+@media (max-height: 750px) {   
 html{
     font-size: .6em;
 }
@@ -22,7 +22,9 @@ body {
     border-radius: 1em;
 }
 
-ul{padding: 0; margin:0}
+.notes{
+    display: none;
+}
 
 button {
     position: relative;
