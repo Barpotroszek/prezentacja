@@ -30,9 +30,8 @@ class Slides {
       this.loaded_q = false;
       this.current_q = -1;
       console.log("Refs:", this.quotes_ref);
-      try {
+      if(this.quotes_ref.length > 0)
         this.ref.querySelector('.top').classList.add("start");        
-      } catch (error) {}
     } catch (error) {
       console.error("some error", error);
       return;
@@ -108,7 +107,7 @@ function renderTemplates() {
 
 let slides;
 window.onload = () => {
-  slides = new Slides(2);
+  slides = new Slides(3);
   // slides.nextQuote()
   document
     .getElementById("left")

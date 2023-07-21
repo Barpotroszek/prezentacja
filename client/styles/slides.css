@@ -89,6 +89,12 @@ article, article > *{
     transition: top 1s, transform 1s;
 }
 
+article.bottom > h1 {
+    bottom: 1.5em;
+    position: absolute;
+    transform: none;
+}
+
 article.top > h1 {
     top: .5em;
     position: absolute;
