@@ -3,14 +3,18 @@ body{
 }
 
 .slide-container {
-    --scale: 0.7 !important;
     /* position: relative; */
+    width: 100vw;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 1fr;
 }
 .slide {
-    /* transform: translate(-20%); */
-    max-width: 50vw;   
+    width: calc(100vw*2/3);
+    height: calc(100vh*2/3);
+    scale: .9;
+    border: .2em solid white;
+    border-radius: .5em; 
+    font-size: .7rem;
 }
 
 .notes{

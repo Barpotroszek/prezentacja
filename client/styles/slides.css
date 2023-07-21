@@ -4,13 +4,12 @@
 }
 
 .slide-container {
-    height: calc(100vh * var(--scale));
-    width: calc(100vw * var(--scale));
+    height: 100vh;
+    width: 100vw;
     position: absolute;
     top: 0;
     transition: opacity .5s;
     opacity: 0;
-    --scale: 1;
 }
 
 
@@ -24,7 +23,6 @@ img[data-role="background"]{
     width: inherit;
     position: relative;
     transition: inherit;
-    scale: var(--scale);
     background-color: var(--bg-color);
     background-image: var(--bg-img-src);
     background-position: center;
@@ -61,7 +59,7 @@ img[data-role="background"]{
     width: 100%;
     height: 100%;
     position: relative !important;
-    font-size: 3rem;
+    font-size: 4em;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -74,7 +72,7 @@ img[data-role="background"]{
 article > h1, article > h2 {
     width: max-content;
     padding: 0 1.5em;
-    font-size: 3rem;
+    font-size: 1.2em;
     border-bottom: .1em solid white;
     margin: 0;
     /* position: absolute; */
@@ -84,13 +82,12 @@ article > *{
     /* margin: .5em; */
     margin: 0;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: .7em;
     font-style: italic;
 }
 
 article, article > *{
     transition: top 1s, transform 1s;
-    /* transition: backdrop-filter 0s; */
 }
 
 article.top > h1 {
@@ -105,9 +102,7 @@ article.top.start > h1{
 }
 
 q{
-    /* display: none; */
     opacity: 0;
-    /* position: absolute; */
     transition: all 1s;
     padding: inherit;
 }
@@ -116,8 +111,8 @@ q{
 
 .source{
     position: absolute;
-    bottom: .4em;
-    right: .4em;
+    bottom: .7em;
+    right: .7em;
     font-size: .4em;
     color: grey;
     font-style: italic;
@@ -135,7 +130,6 @@ q{
 .quotes {
     position: relative;
     max-height: 80vh;
-    width: 90vw;
     box-sizing: border-box;
     overflow: auto;
     padding: .5em 1em;

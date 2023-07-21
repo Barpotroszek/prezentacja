@@ -64,8 +64,6 @@ class Slides {
       this.quotes_ref[this.current_q].scrollIntoView(true)
     } catch (error) {
       if (!(error instanceof TypeError)) return;
-      console.log(error)
-      // this.ref.querySelector("article").classList.add("start");
        this.prevSlide();
     }
   }
@@ -108,12 +106,12 @@ window.onload = () => {
   document
     .getElementById("right")
     .addEventListener("click", () => slides.nextQuote());
-  return;
+  // return;
   if (window.location.search.includes("speaker")) {
     renderTemplates();
     let link = document.createElement("link");
     link.setAttribute("rel", "stylesheet");
-    link.setAttribute("href", "speaker.css");
+    link.setAttribute("href", "styles/speaker.css");
     document.head.append(link);
   }
 };
