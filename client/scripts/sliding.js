@@ -42,29 +42,32 @@ class Slides {
       if (!this.loaded_q) {
         this.loaded_q = true;
         // try {
-          setTimeout(()=>this.ref.querySelector("article").classList.add("init"), 1000);
-          this.ref.querySelector("article").classList.remove("start");
+        setTimeout(
+          () => this.ref.querySelector("article").classList.add("init"),
+          1000
+        );
+        this.ref.querySelector("article").classList.remove("start");
         // } catch (error) {}
       } else this.quotes_ref[this.current_q].classList.remove("active");
       this.quotes_ref[++this.current_q].classList.add("active");
-      console.log(this.current_q)
-      this.quotes_ref[this.current_q].scrollIntoView(true)
+      console.log(this.current_q);
+      this.quotes_ref[this.current_q].scrollIntoView(true);
     } catch (error) {
       if (!error instanceof TypeError) return;
       console.log(error, this.current_q);
-       this.nextSlide();
+      this.nextSlide();
     }
   }
 
-  prevQuote(){
+  prevQuote() {
     try {
       this.quotes_ref[this.current_q].classList.remove("active");
-      if(this.current_q <= 0 ) throw TypeError("idk");
+      if (this.current_q <= 0) throw TypeError("idk");
       this.quotes_ref[--this.current_q].classList.add("active");
-      this.quotes_ref[this.current_q].scrollIntoView(true)
+      this.quotes_ref[this.current_q].scrollIntoView(true);
     } catch (error) {
       if (!(error instanceof TypeError)) return;
-       this.prevSlide();
+      this.prevSlide();
     }
   }
 
@@ -78,7 +81,7 @@ class Slides {
     if (this.current <= 0) return;
     this.current--;
     try {
-      this.quotes_ref[this.current_q].classList.remove("active");      
+      this.quotes_ref[this.current_q].classList.remove("active");
     } catch (error) {}
     this.loadSlide();
   }
@@ -89,16 +92,20 @@ function renderTemplates() {
     .getElementById("notes-templ")
     .content.querySelector(".notes");
   Array.from(document.querySelectorAll(".slide-container")).forEach((el, i) => {
-    const item = document.importNode(notes_templ, true);
-    item.querySelector("ul").textContent = "Siema, działa " + i;
-    el.append(item);
+    try {
+      const item = document.importNode(notes_templ, true),
+      notes = el.querySelector(".notes");
+      item.querySelector("ul").innerHTML = notes.innerHTML;
+      notes.innerHTML = "";
+      el.append(item);
+    } catch (e) {}
     slides.max = i;
   });
 }
 
 let slides;
 window.onload = () => {
-  slides = new Slides(0);
+  slides = new Slides(2);
   // slides.nextQuote()
   document
     .getElementById("left")

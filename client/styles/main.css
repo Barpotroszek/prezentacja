@@ -8,7 +8,7 @@ html {
 
 @media (max-height: 770px) {   
 html{
-    font-size: .8em;
+    font-size: .6em;
 }
 }
 
@@ -26,15 +26,15 @@ ul{padding: 0; margin:0}
 
 button {
     position: relative;
-    font-size: 1.5em;
-    width: 3rem;
-    height: 3rem;
+    font-size: 2em;
+    width: 2em;
+    height: 2em;
     padding: 0;
 }
 
 #controls{
     position: fixed;
-    bottom: 1.5rem;
-    left: 3rem;
+    bottom: 1.5em;
+    left: 3em;
     z-index: 15;
 }
