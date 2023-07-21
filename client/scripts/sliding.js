@@ -13,7 +13,7 @@ class Slides {
   constructor(current) {
     this.current = current | 0;
     this.ref = null;
-    this.max = 3;
+    this.max = 4;
     this.loadSlide();
     this.loaded_q = false;
     this.current_q = -1;
@@ -107,7 +107,7 @@ function renderTemplates() {
 
 let slides;
 window.onload = () => {
-  slides = new Slides(3);
+  slides = new Slides(0);
   // slides.nextQuote()
   document
     .getElementById("left")
