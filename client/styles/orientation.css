@@ -1,0 +1,72 @@
+@media (orientation: portrait) {
+    #mask-warning{
+        z-index: 50;
+        padding: 2em;
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
+        
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2em;
+
+        backdrop-filter: brightness(.2);
+    }
+
+    #mask-warning > h1{
+        text-align: center;
+        height: fit-content;
+    }
+
+    #phone {
+        /* scale: .2; */
+        position: relative;
+        width: 4rem;
+        height: 8rem;
+        border: .4em solid white;
+        border-radius: .8em;
+        animation: rotate 4s infinite ease-in-out;
+    }
+}
+
+#phone::before, #phone::after {
+    position: absolute;
+    content: " " ;
+    top: .3em;
+    left: 50%;
+    transform: translate(-50%);
+    width: 2rem;
+    height: .01rem;
+    height: 0;
+    border: .2em solid white;
+    border-radius: .4em;
+    background-color: white;
+}
+
+#phone::after {
+    scale: .9;
+    top: 6.8rem;
+    left: 50%;
+    transform: translate(-50%);
+    width: .2rem;
+    height: .2rem;
+    border-width: .3rem;
+}
+
+@keyframes rotate {
+    0%, 15%, 100% {
+        transform: none;
+    }
+    55%, 90%{
+        transform: rotate(-90deg);
+    }
+}
+
+@media (orientation: landscape){ 
+    #mask-warning{
+        display: none;
+    }
+}

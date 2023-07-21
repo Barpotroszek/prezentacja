@@ -1,0 +1,164 @@
+.slides-wrapper {
+    height: 100vh;
+    width: 100vw;
+}
+
+.slide-container {
+    height: calc(100vh * var(--scale));
+    width: calc(100vw * var(--scale));
+    position: absolute;
+    top: 0;
+    transition: opacity .5s;
+    opacity: 0;
+    --scale: 1;
+}
+
+
+img[data-role="background"]{
+    display: none;
+}
+
+.slide{
+    display: none;
+    height: inherit;
+    width: inherit;
+    position: relative;
+    transition: inherit;
+    scale: var(--scale);
+    background-color: var(--bg-color);
+    background-image: var(--bg-img-src);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+
+    z-index: 0;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.slide > *{
+    z-index: 2;
+}
+
+.slide.active {
+    display: flex;
+}
+
+.active {
+    /* display: block; */
+    z-index: 1;
+    opacity: 1 !important;
+}
+
+.active > * {
+    display: block;
+}
+
+
+.slide > article {
+    width: 100%;
+    height: 100%;
+    position: relative !important;
+    font-size: 3rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    backdrop-filter: brightness(var(--brightness));
+    padding: .5em 1.5em;
+}
+
+article > h1, article > h2 {
+    width: max-content;
+    padding: 0 1.5em;
+    font-size: 3rem;
+    border-bottom: .1em solid white;
+    margin: 0;
+    /* position: absolute; */
+}
+
+article > *{
+    /* margin: .5em; */
+    margin: 0;
+    text-align: center;
+    font-size: 1.8rem;
+    font-style: italic;
+}
+
+article, article > *{
+    transition: top 1s, transform 1s;
+    /* transition: backdrop-filter 0s; */
+}
+
+article.top > h1 {
+    top: .5em;
+    transform: none;
+}
+
+article.top.start > h1{
+    /* top: 50%; */
+    transform: translate(0,30vh);
+    animation: none;
+}
+
+q{
+    /* display: none; */
+    opacity: 0;
+    /* position: absolute; */
+    transition: all 1s;
+    padding: inherit;
+}
+
+.italic { font-style: italic;}
+
+.source{
+    position: absolute;
+    bottom: .4em;
+    right: .4em;
+    font-size: .4em;
+    color: grey;
+    font-style: italic;
+}
+
+.source::before{
+    content:"fot. ";
+    /* content:"©" */
+}
+
+.notes{
+    display: none;
+}
+
+.quotes {
+    position: relative;
+    max-height: 80vh;
+    width: 90vw;
+    box-sizing: border-box;
+    overflow: auto;
+    padding: .5em 1em;
+    scroll-behavior: smooth;
+}
+
+@keyframes arr-down {
+    0%,100%{
+        transform:none;
+    }
+    50%{
+        transform: translate(0,-50%);
+    }
+}
+.start > .quotes::before{
+    content: none;
+}
+.quotes::before {
+    content: "↓";
+    position: fixed;
+    font-style: normal;
+    left: .7em;
+    bottom: 2em;
+    font-size: 2em;
+    animation: arr-down 2s ease-in-out infinite;
+}

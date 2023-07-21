@@ -1,0 +1,18 @@
+body{
+    overflow: auto;
+}
+
+.slide-container {
+    --scale: 0.7 !important;
+    /* position: relative; */
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+.slide {
+    /* transform: translate(-20%); */
+    max-width: 50vw;   
+}
+
+.notes{
+    display: block;
+}
