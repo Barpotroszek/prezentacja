@@ -13,7 +13,7 @@ class Slides {
   constructor(current) {
     this.current = current | 0;
     this.ref = null;
-    this.max = 2;
+    this.max = 3;
     this.loadSlide();
     this.loaded_q = false;
     this.current_q = -1;
