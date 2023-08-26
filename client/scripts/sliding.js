@@ -31,7 +31,13 @@ class Slides {
       this.current_q = -1;
       console.log("Refs:", this.quotes_ref);
       if(this.quotes_ref.length > 0)
+      try {
         this.ref.querySelector('.top').classList.add("start");        
+        
+      } catch (error) {
+        this.ref.querySelector('.bottom').classList.add("start");        
+        
+      }
     } catch (error) {
       console.error("some error", error);
       return;
@@ -107,7 +113,7 @@ function renderTemplates() {
 
 let slides;
 window.onload = () => {
-  slides = new Slides(0);
+  slides = new Slides(30);
   // slides.nextQuote()
   document
     .getElementById("left")
@@ -116,6 +122,9 @@ window.onload = () => {
     .getElementById("right")
     .addEventListener("click", () => slides.nextQuote());
   // return;
+  let iframe = document.getElementsByTagName("iframe")[0];
+  iframe.width = parent.innerWidth
+  iframe.height= parent.outerHeight
   if (window.location.search.includes("speaker")) {
     renderTemplates();
     let link = document.createElement("link");
